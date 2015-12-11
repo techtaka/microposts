@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
+    @microposts = @user.microposts.order(created_at: :desc)
   end
 
   def new
@@ -45,5 +46,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-# Comment2
