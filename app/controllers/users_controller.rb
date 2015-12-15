@@ -26,13 +26,24 @@ class UsersController < ApplicationController
 
   def update
     redirect_to root_path if @user != current_user
-    if @user.update(user_params)
-      flash[:success] = "The contents were renewed."
-      redirect_to @user
-    else
-      render 'edit'
-    end  
+      if @user.update(user_params)
+        flash[:success] = "The contents were renewed."
+        redirect_to @user
+      else
+        render 'edit'
+      end  
   end
+
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.following_users
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+  end
+
 
   private
 

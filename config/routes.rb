@@ -10,4 +10,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
   resources :relationships, only: [:create, :destroy]
+
+  resources :users do
+    member do
+      get :followings
+      # /users/:id/followings
+      get :followers
+    end
+  end
 end

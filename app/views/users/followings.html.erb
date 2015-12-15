@@ -1,0 +1,21 @@
+<% @page_title = "[フォローユーザー]　一覧" %>
+  <h3><%= @page_title %></3>
+    <br />
+    <br />
+    <div class="panel panel-default">
+      <% if @users.present? %>
+        <div class="panel-heading">
+          ユーザー名
+        </div>
+        
+        <div class="panel-body">
+          <% @users.each do |user| %>
+            <span class="label label-info"><%= user.name %></span>
+            <br />
+          <% end %>
+        </div>
+    
+      <% else %>
+        <p>フォローするユーザーはいません</p>
+      <% end %>
+    </div>
