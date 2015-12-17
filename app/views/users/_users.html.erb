@@ -1,0 +1,6 @@
+<% users.each do |user| %>
+    <div class="clearfix user-cell user_eachveiw">
+        <%= gravatar_for2 user %>  
+        <span class="label label-info"><%= user.name %></span>
+    </div>
+<% end %>
