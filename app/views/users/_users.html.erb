@@ -1,6 +1,18 @@
 <% users.each do |user| %>
     <div class="clearfix user-cell user_eachveiw">
-        <%= gravatar_for2 user %>  
-        <span class="label label-info"><%= user.name %></span>
+      <%= gravatar_for2 user %>
+
+        <ul class="list-inline">
+          <li>
+            <span class="label label-info">
+              <%= user.name %>
+            </span>
+          </li>
+
+          <li>
+              <%= user.area %>
+          </li>
+        </ul>
+
     </div>
 <% end %>
