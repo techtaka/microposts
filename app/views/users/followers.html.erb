@@ -1,8 +1,10 @@
-<% @page_title = "[フォロワー]　一覧" %>
+<% @page_title = "[Follower]　フォロワー一覧" %>
   <div class="bg-success">
     <h3><%= @page_title %></h3>
   </div>
     <br />
+    <p><%= page_entries_info @users %></p>
+
     <div class="panel panel-default">
       <% if @users.present? %>
         <div class="panel-heading">
@@ -16,4 +18,9 @@
       <% else %>
         <p>フォローされるユーザーはいません</p>
       <% end %>
+
+    </div>
+
+    <div class="pagenation">
+      <%= paginate @users %>
     </div>

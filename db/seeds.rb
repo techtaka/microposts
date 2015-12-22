@@ -9,6 +9,6 @@
 
 # User.create!(name: 'hashimoto', email: 'web@dyo.jp', password: 'password', password_confirmation: 'password', area: 'yokohama' )
 
-# [100..110].each do |i|
-#     User.create(name: "user#{i}", email: "example#{i}@example.com", password: 'password', password_confirmation: 'password')
-# end
+30.times do |i|
+User.create(name: "user#{i}", email: "example#{i}@example.com", password: 'password', password_confirmation: 'password')
+end

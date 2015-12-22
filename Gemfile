@@ -47,3 +47,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'kaminari'
+
+gem 'kaminari-bootstrap', '~> 3.0.1'
