@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-
+  #以下2つの before_action の順序は重要！
   before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
-  before_action :authorize!, only: [:edit, :update]  
+  before_action :authorize!, only: [edit, :update]
 
   def show
-    @microposts = @user.microposts.order(created_at: :desc).page(params[:page])
+    @microposts = @user.microposts.order(created_at: :desc)
   end
 
   def new
@@ -41,9 +41,9 @@ class UsersController < ApplicationController
     @users = @user.follower_users.page(params[:page])
   end
 
-#  def index
-#    @users = User.all.page(params[:page]).per(5)
-#  end
+  def index
+    @users = User.all.page(params[:page]).per(5)
+  end
 
 
   private
@@ -57,10 +57,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def authorize!
+  def authorize!   # リダイレクトする副作用があるのでそれを強調する意味で "!" を名前に含めています。
     if @user != current_user
-      redirect_to root_url, alert: "不正なアクセスです"
-    end  
+      redirect_to root_url, alert: "不正なアクセスです"  # メッセージも出してあげる。（短縮形です）
+    end
   end
 
 end

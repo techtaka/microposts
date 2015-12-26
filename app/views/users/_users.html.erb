@@ -4,13 +4,12 @@
 
         <ul class="list-inline">
           <li>
-            <span class="label label-info">
-              <%= user.name %>
-            </span>
+              <%= link_to user.name, user_path(user) %>
           </li>
-
           <li>
+            <span class="label label-info">
               <%= user.area %>
+            </span>
           </li>
         </ul>
 

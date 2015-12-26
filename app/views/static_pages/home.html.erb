@@ -15,7 +15,12 @@
 
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
+        <p/><%= page_entries_info @feed_items %></p>
       <%= render 'shared/feed' %>
+
+      <div class="pagenation_home">
+        <%= paginate @feed_items %>
+      </div>
     </div>
 
   </div>
